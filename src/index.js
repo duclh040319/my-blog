@@ -4,7 +4,7 @@ const handlebars = require("express-handlebars");
 const path = require("path");
 
 const app = express();
-const PORT = 8080;
+const PORT = 10000;
 
 const { route } = require("./routes");
 
