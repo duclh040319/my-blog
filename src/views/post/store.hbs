@@ -1,0 +1,56 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col">Created Time</th>
+      <th scope="col">Updated Time</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {{#if posts}}
+    {{#each posts}}
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td>{{this.title}}</td>
+        <td>{{this.content}}</td>
+        <td>{{this.createdAt}}</td>
+        <td>{{this.updatedAt}}</td>
+        <td>
+          <a href="/posts/{{this._id}}/edit">
+
+            <button
+              type="button"
+              data-id={{this._id}}
+              class="btn btn-primary my-1"
+            >Update</button>
+          </a>
+          <button
+            data-id="{{this._id}}"
+            type="button"
+            class="btn btn-danger my-1"
+          >Delete</button>
+        </td>
+
+      </tr>
+    {{/each}}
+
+    {{else}}
+    <tr>
+      <th></th>
+      <td></td>
+      <td></td>
+      <td>Nothing in here</td>
+      <td></td>
+      <td></td>
+    </tr>
+    {{/if}}
+  </tbody>
+</table>
+
+<form method="post" name="delete-post-form"></form>
+
+<script src="/js/store.js"></script>
